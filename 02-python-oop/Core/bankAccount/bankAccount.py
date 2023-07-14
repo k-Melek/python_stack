@@ -1,7 +1,7 @@
 class BankAccount:
     accounts = []
 
-    def __init__(self, interest_rate=0, balance=0):
+    def __init__(self, interest_rate=0.025, balance=0):
         self.interest_rate = interest_rate
         self.balance = balance
         BankAccount.accounts.append(self)
@@ -33,7 +33,7 @@ class BankAccount:
 
 # Create two accounts
 account1 = BankAccount(0.3, 1500)
-account2 = BankAccount(2, 1500)
+account2 = BankAccount(0.07, 1500)
 
 # To the first account, make 3 deposits and 1 withdrawal, then yield interest and display the account's info all in one line of code (i.e. chaining)
 account1.deposit(300).deposit(300).deposit(300).withdraw(500).yield_interest().display_account_info()
