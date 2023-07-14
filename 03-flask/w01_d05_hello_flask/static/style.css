@@ -1,0 +1,19 @@
+/* * {
+    outline: 1px dotted cornflowerblue;
+} */
+.container {
+    margin: 0 auto;
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.circle {
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    border-radius: 50%;
+    /* background-color: coral; */
+}
