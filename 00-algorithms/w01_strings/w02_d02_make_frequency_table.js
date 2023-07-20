@@ -35,3 +35,5 @@ function makeFrequencyTable(arr) {
 
 makeFrequencyTable(arr1)
 makeFrequencyTable(arr2)
+
+
