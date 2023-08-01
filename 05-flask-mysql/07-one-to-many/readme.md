@@ -1,0 +1,8 @@
+- pipenv install flask pymysql flask-bcrypt
+- touch sever.py
+- mkdir flask-app
+- cd flask-app
+- mkdir config controller models templates static
+- touch __init__.py
+- cd ..
+- pipenv shell
