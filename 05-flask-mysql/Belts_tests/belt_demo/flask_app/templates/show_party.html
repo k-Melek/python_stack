@@ -14,20 +14,9 @@
                 <h2>{{party.title}}</h2>
             </div>
             <div class="card_body p-3">
-                <h3>Posted by: {{party.creator}}</h3>
-                <h5>Location: {{party.location}}</h5>
-                <h5>Date: {{party.date}}</h5>
-                <h5>All Ages are Welcome:
-                    {% if party.all_ages == 1 %}
-                    True
-                    {% else %}
-                    False
-                    {% endif %}</h5>
-                <h5>
-                    Description: {{party.description}}
-                </h5>
+                <p class="p-3 bg-dark text-light">{{party.thoughts}}</p>
             </div>
-            <a href="/dashboard" class="btn btn-lg btn-info w-100">Back</a>
+            <a href="/books" class="btn btn-lg btn-info w-100">Back</a>
         </div>
     </div>
 </body>

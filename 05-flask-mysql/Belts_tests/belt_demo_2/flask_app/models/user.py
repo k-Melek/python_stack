@@ -8,8 +8,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 class User:
     def __init__(self, data_dict):
         self.id = data_dict['id']
-        self.first_name = data_dict['first_name']
-        self.last_name = data_dict['last_name']
+        self.name = data_dict['name']
         self.email = data_dict['email']
         self.password = data_dict['password']
         self.created_at = data_dict['created_at']
@@ -18,7 +17,7 @@ class User:
 
     @classmethod
     def create(cls, data_dict):
-        query = """INSERT INTO users (first_name, last_name, email, password) VALUES (%(first_name)s,%(last_name)s,%(email)s,%(password)s);"""
+        query = """INSERT INTO users (name, email, password) VALUES (%(name)s, %(email)s, %(password)s);"""
         return connectToMySQL(DATABASE).query_db(query, data_dict)
     
 
@@ -32,22 +31,17 @@ class User:
     def get_by_email(cls, data_dict):
         query = """SELECT * FROM users WHERE email=%(email)s;"""
         result = connectToMySQL(DATABASE).query_db(query, data_dict)
-        print(result)
         if result :
             return cls(result[0])
         return False
     
-
     
     @staticmethod
     def validate(data_dict):
         is_valid = True
-        if len(data_dict['first_name'])<2:
+        if len(data_dict['name'])<2:
             is_valid =False
-            flash("First Name not valid", "first_name")
-        if len(data_dict['last_name'])<2:
-            is_valid =False
-            flash("Last name not valid", "last_name")
+            flash("Name not valid", "name")
         if not EMAIL_REGEX.match(data_dict['email']): 
             is_valid = False
             flash("Email not valid", "email")
