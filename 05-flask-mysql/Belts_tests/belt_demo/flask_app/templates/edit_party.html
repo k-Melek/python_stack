@@ -40,9 +40,13 @@
                     </div>
                     <div class="mt-3 form-group">
                         <label for="">All Ages</label>
-                        <input type="radio" name="all_ages" value="1" checked>
+                        <input type="radio" name="all_ages" value="1" 
+                        {% if party.all_ages == 1 %}
+                        checked {% endif %}>
                         <label for="">True</label>
-                        <input type="radio" name="all_ages" value="0">
+                        <input type="radio" name="all_ages" value="0"
+                        {% if party.all_ages == 0 %}
+                        checked {% endif %}>
                         <label for="">False</label>
                     </div>
                     

@@ -36,7 +36,7 @@ def register():
     if User.validate(request.form):
 
         # 1 Secure password = Hash using bcrypt
-        pw_hash = Bcrypt.generate_password_hash(request.form['password'])
+        pw_hash = bcrypt.generate_password_hash(request.form['password'])
         data = {
             **request.form,
             'password':pw_hash

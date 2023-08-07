@@ -41,6 +41,17 @@ class Party:
             party.poster = f"{row['first_name']} {row['last_name']}"
             all_parties.append(party)
         return all_parties
+    
+    # ____________________________________GET USER PARTIES ********
+
+    @classmethod
+    def get_user_parties(cls, data_dict):
+        query = """SELECT * FROM parties WHERE user_id = %(user_id)s"""
+        results = connectToMySQL(DATABASE).query_db(query, data_dict)
+        all_parties =[]
+        for row in results:
+            all_parties.append(cls(row))
+        return all_parties
 
 
     # _________________________________GET ONE
